@@ -1,0 +1,1196 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>15.1.2 启用和禁用 Actuator 端点 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../15.2-Consuming-Actuator-endpoints/Introduction.html" />
+    
+    
+    <link rel="prev" href="15.1.1-Configuring-Actuator's-base-path.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../../Chapter-01/Introduction.html">
+            
+                <a href="../../Chapter-01/Introduction.html">
+            
+                    
+                    第 1 章 Spring 入门
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../../Chapter-01/1.1-What-is-Spring.html">
+            
+                <a href="../../Chapter-01/1.1-What-is-Spring.html">
+            
+                    
+                    1.1 什么是 Spring？
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../../Chapter-01/1.2-Initializing-a-Spring-application/Introduction.html">
+            
+                <a href="../../Chapter-01/1.2-Initializing-a-Spring-application/Introduction.html">
+            
+                    
+                    1.2 初始化 Spring 应用程序
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.1" data-path="../../Chapter-01/1.2-Initializing-a-Spring-application/1.2.1-Initializing-a-Spring-project-with-Spring-Tool-Suite.html">
+            
+                <a href="../../Chapter-01/1.2-Initializing-a-Spring-application/1.2.1-Initializing-a-Spring-project-with-Spring-Tool-Suite.html">
+            
+                    
+                    1.2.1 使用 Spring Tool Suite 初始化 Spring 项目
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.2" data-path="../../Chapter-01/1.2-Initializing-a-Spring-application/1.2.2-Examining-the-Spring-project-structure.html">
+            
+                <a href="../../Chapter-01/1.2-Initializing-a-Spring-application/1.2.2-Examining-the-Spring-project-structure.html">
+            
+                    
+                    1.2.2 检查 Spring 项目结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../../Chapter-01/1.3-Writing-a-Spring-application/Introduction.html">
+            
+                <a href="../../Chapter-01/1.3-Writing-a-Spring-application/Introduction.html">
+            
+                    
+                    1.3 编写 Spring 应用程序
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.3.1" data-path="../../Chapter-01/1.3-Writing-a-Spring-application/1.3.1-Handling-web-requests.html">
+            
+                <a href="../../Chapter-01/1.3-Writing-a-Spring-application/1.3.1-Handling-web-requests.html">
+            
+                    
+                    1.3.1 处理 web 请求
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.2" data-path="../../Chapter-01/1.3-Writing-a-Spring-application/1.3.2-Defining-the-view.html">
+            
+                <a href="../../Chapter-01/1.3-Writing-a-Spring-application/1.3.2-Defining-the-view.html">
+            
+                    
+                    1.3.2 定义视图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.3" data-path="../../Chapter-01/1.3-Writing-a-Spring-application/1.3.3-Testing-the-controller.html">
+            
+                <a href="../../Chapter-01/1.3-Writing-a-Spring-application/1.3.3-Testing-the-controller.html">
+            
+                    
+                    1.3.3 测试控制器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.4" data-path="../../Chapter-01/1.3-Writing-a-Spring-application/1.3.4-Building-and-running-the-application.html">
+            
+                <a href="../../Chapter-01/1.3-Writing-a-Spring-application/1.3.4-Building-and-running-the-application.html">
+            
+                    
+                    1.3.4 构建并运行应用程序
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.5" data-path="../../Chapter-01/1.3-Writing-a-Spring-application/1.3.5-Getting-to-know-Spring-Boot-DevTools.html">
+            
+                <a href="../../Chapter-01/1.3-Writing-a-Spring-application/1.3.5-Getting-to-know-Spring-Boot-DevTools.html">
+            
+                    
+                    1.3.5 了解 Spring Boot DevTools
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.6" data-path="../../Chapter-01/1.3-Writing-a-Spring-application/1.3.6-Let's-review.html">
+            
+                <a href="../../Chapter-01/1.3-Writing-a-Spring-application/1.3.6-Let's-review.html">
+            
+                    
+                    1.3.6 回顾
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../../Chapter-01/1.4-Surveying-the-Spring-landscape/Introduction.html">
+            
+                <a href="../../Chapter-01/1.4-Surveying-the-Spring-landscape/Introduction.html">
+            
+                    
+                    1.4  俯瞰 Spring 风景线
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.4.1" data-path="../../Chapter-01/1.4-Surveying-the-Spring-landscape/1.4.1-The-core-Spring-Framework.html">
+            
+                <a href="../../Chapter-01/1.4-Surveying-the-Spring-landscape/1.4.1-The-core-Spring-Framework.html">
+            
+                    
+                    1.4.1 Spring 核心框架
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.2" data-path="../../Chapter-01/1.4-Surveying-the-Spring-landscape/1.4.2-Spring-Boot.html">
+            
+                <a href="../../Chapter-01/1.4-Surveying-the-Spring-landscape/1.4.2-Spring-Boot.html">
+            
+                    
+                    1.4.2 Spring Boot
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.3" data-path="../../Chapter-01/1.4-Surveying-the-Spring-landscape/1.4.3-Spring-Data.html">
+            
+                <a href="../../Chapter-01/1.4-Surveying-the-Spring-landscape/1.4.3-Spring-Data.html">
+            
+                    
+                    1.4.3 Spring Data
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.4" data-path="../../Chapter-01/1.4-Surveying-the-Spring-landscape/1.4.4-Spring-Security.html">
+            
+                <a href="../../Chapter-01/1.4-Surveying-the-Spring-landscape/1.4.4-Spring-Security.html">
+            
+                    
+                    1.4.4 Spring Security
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.5" data-path="../../Chapter-01/1.4-Surveying-the-Spring-landscape/1.4.5-Spring-Integration-and-Spring-Batch.html">
+            
+                <a href="../../Chapter-01/1.4-Surveying-the-Spring-landscape/1.4.5-Spring-Integration-and-Spring-Batch.html">
+            
+                    
+                    1.4.5 Spring Integration 和 Spring Batch
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.6" data-path="../../Chapter-01/1.4-Surveying-the-Spring-landscape/1.4.6-Spring-Cloud.html">
+            
+                <a href="../../Chapter-01/1.4-Surveying-the-Spring-landscape/1.4.6-Spring-Cloud.html">
+            
+                    
+                    1.4.6 Spring Cloud
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.7" data-path="../../Chapter-01/1.4-Surveying-the-Spring-landscape/1.4.7-Spring-Native.html">
+            
+                <a href="../../Chapter-01/1.4-Surveying-the-Spring-landscape/1.4.7-Spring-Native.html">
+            
+                    
+                    1.4.7 Spring Native
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../../Chapter-01/1.5-Summary.html">
+            
+                <a href="../../Chapter-01/1.5-Summary.html">
+            
+                    
+                    1.5 小结
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../Introduction.html">
+            
+                <a href="../Introduction.html">
+            
+                    
+                    第 15 章 使用 Spring Boot Actuator
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="Introduction.html">
+            
+                <a href="Introduction.html">
+            
+                    
+                    15.1 介绍 Actuator
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1.1" data-path="15.1.1-Configuring-Actuator's-base-path.html">
+            
+                <a href="15.1.1-Configuring-Actuator's-base-path.html">
+            
+                    
+                    15.1.1 配置 Actuator 基本路径
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.1.1.2" data-path="15.1.2-Enabling-and-disabling-Actuator-endpoints.html">
+            
+                <a href="15.1.2-Enabling-and-disabling-Actuator-endpoints.html">
+            
+                    
+                    15.1.2 启用和禁用 Actuator 端点
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2" data-path="../15.2-Consuming-Actuator-endpoints/Introduction.html">
+            
+                <a href="../15.2-Consuming-Actuator-endpoints/Introduction.html">
+            
+                    
+                    15.2 使用 Actuator 端点
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.2.1" data-path="../15.2-Consuming-Actuator-endpoints/15.2.1-Fetching-essential-application-information.html">
+            
+                <a href="../15.2-Consuming-Actuator-endpoints/15.2.1-Fetching-essential-application-information.html">
+            
+                    
+                    15.2.1 获取重要的应用程序信息
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2.2" data-path="../15.2-Consuming-Actuator-endpoints/15.2.2-Viewing-configuration-details.html">
+            
+                <a href="../15.2-Consuming-Actuator-endpoints/15.2.2-Viewing-configuration-details.html">
+            
+                    
+                    15.2.2 查看配置详细信息
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2.3" data-path="../15.2-Consuming-Actuator-endpoints/15.2.3-Viewing-application-activity.html">
+            
+                <a href="../15.2-Consuming-Actuator-endpoints/15.2.3-Viewing-application-activity.html">
+            
+                    
+                    15.2.3 查看应用程序活动
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2.4" data-path="../15.2-Consuming-Actuator-endpoints/15.2.4-Tapping-runtime-metrics.html">
+            
+                <a href="../15.2-Consuming-Actuator-endpoints/15.2.4-Tapping-runtime-metrics.html">
+            
+                    
+                    15.2.4 利用运行时指标
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3" data-path="../15.3-Customizing-Actuator/Introduction.html">
+            
+                <a href="../15.3-Customizing-Actuator/Introduction.html">
+            
+                    
+                    15.3 自定义 Actuator
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.3.1" data-path="../15.3-Customizing-Actuator/15.3.1-Contributing-information-to-the-info-endpoint.html">
+            
+                <a href="../15.3-Customizing-Actuator/15.3.1-Contributing-information-to-the-info-endpoint.html">
+            
+                    
+                    15.3.1 向 /info 端点提供信息
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3.2" data-path="../15.3-Customizing-Actuator/15.3.2-Defining-custom-health-indicators.html">
+            
+                <a href="../15.3-Customizing-Actuator/15.3.2-Defining-custom-health-indicators.html">
+            
+                    
+                    15.3.2 自定义健康指标
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3.3" data-path="../15.3-Customizing-Actuator/15.3.3-Registering-custom-metrics.html">
+            
+                <a href="../15.3-Customizing-Actuator/15.3.3-Registering-custom-metrics.html">
+            
+                    
+                    15.3.3 注册自定义指标
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3.4" data-path="../15.3-Customizing-Actuator/15.3.4-Creating-custom-endpoints.html">
+            
+                <a href="../15.3-Customizing-Actuator/15.3.4-Creating-custom-endpoints.html">
+            
+                    
+                    15.3.4 创建自定义端点
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4" data-path="../15.4-Securing-Actuator.html">
+            
+                <a href="../15.4-Securing-Actuator.html">
+            
+                    
+                    15.4 保护 Actuator
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5" data-path="../15.5-Summary.html">
+            
+                <a href="../15.5-Summary.html">
+            
+                    
+                    15.5 总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../../Chapter-16/Introduction.html">
+            
+                <a href="../../Chapter-16/Introduction.html">
+            
+                    
+                    第 16 章 管理 Spring
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.2.1" data-path="../../Chapter-16/16.1-Using-Spring-Boot-Admin/Introduction.html">
+            
+                <a href="../../Chapter-16/16.1-Using-Spring-Boot-Admin/Introduction.html">
+            
+                    
+                    16.1 使用 SpringBoot Admin
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.2.1.1" data-path="../../Chapter-16/16.1-Using-Spring-Boot-Admin/16.1.1-Creating-an-Admin-server.html">
+            
+                <a href="../../Chapter-16/16.1-Using-Spring-Boot-Admin/16.1.1-Creating-an-Admin-server.html">
+            
+                    
+                    16.1.1 创建 Admin 服务端
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.1.2" data-path="../../Chapter-16/16.1-Using-Spring-Boot-Admin/16.1.2-Registering-Admin-clients.html">
+            
+                <a href="../../Chapter-16/16.1-Using-Spring-Boot-Admin/16.1.2-Registering-Admin-clients.html">
+            
+                    
+                    16.1.2 注册 Admin 客户端
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.2" data-path="../../Chapter-16/16.2-Exploring-the-Admin-server/Introduction.html">
+            
+                <a href="../../Chapter-16/16.2-Exploring-the-Admin-server/Introduction.html">
+            
+                    
+                    16.2 深入 Admin 服务端
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.2.2.1" data-path="../../Chapter-16/16.2-Exploring-the-Admin-server/16.2.1-Viewing-general-application-health-and-information.html">
+            
+                <a href="../../Chapter-16/16.2-Exploring-the-Admin-server/16.2.1-Viewing-general-application-health-and-information.html">
+            
+                    
+                    16.2.1 查看普通应用程序运行状况和信息
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.2.2" data-path="../../Chapter-16/16.2-Exploring-the-Admin-server/16.2.2-Watching-key-metrics.html">
+            
+                <a href="../../Chapter-16/16.2-Exploring-the-Admin-server/16.2.2-Watching-key-metrics.html">
+            
+                    
+                    16.2.2 观察关键指标
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.2.3" data-path="../../Chapter-16/16.2-Exploring-the-Admin-server/16.2.3-Examining-environment-properties.html">
+            
+                <a href="../../Chapter-16/16.2-Exploring-the-Admin-server/16.2.3-Examining-environment-properties.html">
+            
+                    
+                    16.2.3 检查环境属性
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.2.4" data-path="../../Chapter-16/16.2-Exploring-the-Admin-server/16.2.4-Viewing-and-setting-logging-levels.html">
+            
+                <a href="../../Chapter-16/16.2-Exploring-the-Admin-server/16.2.4-Viewing-and-setting-logging-levels.html">
+            
+                    
+                    16.2.4 查看并设置 log 级别
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.3" data-path="../../Chapter-16/16.3-Securing-the-Admin-server/Introduction.html">
+            
+                <a href="../../Chapter-16/16.3-Securing-the-Admin-server/Introduction.html">
+            
+                    
+                    16.3 保护 Admin 服务端
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.2.3.1" data-path="../../Chapter-16/16.3-Securing-the-Admin-server/16.3.1-Enabling-login-in-the-Admin-server.html">
+            
+                <a href="../../Chapter-16/16.3-Securing-the-Admin-server/16.3.1-Enabling-login-in-the-Admin-server.html">
+            
+                    
+                    16.3.1 在 Admin 服务端中启用登录
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.3.2" data-path="../../Chapter-16/16.3-Securing-the-Admin-server/16.3.2-Authenticating-with-the-Actuator.html">
+            
+                <a href="../../Chapter-16/16.3-Securing-the-Admin-server/16.3.2-Authenticating-with-the-Actuator.html">
+            
+                    
+                    16.3.2 使用 Actuator 进行认证
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.4" data-path="../../Chapter-16/16.4-Summary.html">
+            
+                <a href="../../Chapter-16/16.4-Summary.html">
+            
+                    
+                    16.4 总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="../../Chapter-17/Introduction.html">
+            
+                <a href="../../Chapter-17/Introduction.html">
+            
+                    
+                    第 17 章 使用 JMX 监控 Spring
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.3.1" data-path="../../Chapter-17/17.1-Working-with-Actuator-MBeans.html">
+            
+                <a href="../../Chapter-17/17.1-Working-with-Actuator-MBeans.html">
+            
+                    
+                    17.1 使用 Actuator MBean
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.2" data-path="../../Chapter-17/17.2-Creating-your-own-MBeans.html">
+            
+                <a href="../../Chapter-17/17.2-Creating-your-own-MBeans.html">
+            
+                    
+                    17.2 创建自己的 MBean
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.3" data-path="../../Chapter-17/17.3-Sending-notifications.html">
+            
+                <a href="../../Chapter-17/17.3-Sending-notifications.html">
+            
+                    
+                    17.3 发送通知
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.4" data-path="../../Chapter-17/17.4-Summary.html">
+            
+                <a href="../../Chapter-17/17.4-Summary.html">
+            
+                    
+                    17.4 总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="../../Chapter-18/Introduction.html">
+            
+                <a href="../../Chapter-18/Introduction.html">
+            
+                    
+                    第 18 章 部署 Spring
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.4.1" data-path="../../Chapter-18/18.1-Weighing-deployment-options.html">
+            
+                <a href="../../Chapter-18/18.1-Weighing-deployment-options.html">
+            
+                    
+                    18.1 权衡部署选项
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.2" data-path="../../Chapter-18/18.2-Building-executable-JAR-files.html">
+            
+                <a href="../../Chapter-18/18.2-Building-executable-JAR-files.html">
+            
+                    
+                    18.2 构建可执行 JAR 文件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.3" data-path="../../Chapter-18/18.3-Building-container-images/Introduction.html">
+            
+                <a href="../../Chapter-18/18.3-Building-container-images/Introduction.html">
+            
+                    
+                    18.3 构建容器镜像
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.4.3.1" data-path="../../Chapter-18/18.3-Building-container-images/18.3.1-Deploying-to-Kubernetes.html">
+            
+                <a href="../../Chapter-18/18.3-Building-container-images/18.3.1-Deploying-to-Kubernetes.html">
+            
+                    
+                    18.3.1 部署到 Kubernetes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.3.2" data-path="../../Chapter-18/18.3-Building-container-images/18.3.2-Enabling-graceful-shutdown.html">
+            
+                <a href="../../Chapter-18/18.3-Building-container-images/18.3.2-Enabling-graceful-shutdown.html">
+            
+                    
+                    18.3.2 启用优雅关闭
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.3.3" data-path="../../Chapter-18/18.3-Building-container-images/18.3.3-Working-with-application-liveness-and-readiness.html">
+            
+                <a href="../../Chapter-18/18.3-Building-container-images/18.3.3-Working-with-application-liveness-and-readiness.html">
+            
+                    
+                    18.3.3 应用存活性和可用性
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.4" data-path="../../Chapter-18/18.4-Building-and-deploying-WAR-files.html">
+            
+                <a href="../../Chapter-18/18.4-Building-and-deploying-WAR-files.html">
+            
+                    
+                    18.4 构建并部署 WAR 文件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.5" data-path="../../Chapter-18/18.5-The-end-is-where-we-begin.html">
+            
+                <a href="../../Chapter-18/18.5-The-end-is-where-we-begin.html">
+            
+                    
+                    18.5 终章
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.6" data-path="../../Chapter-18/18.6-Summary.html">
+            
+                <a href="../../Chapter-18/18.6-Summary.html">
+            
+                    
+                    18.6 总结
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >15.1.2 启用和禁用 Actuator 端点</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="1512-&#x542F;&#x7528;&#x548C;&#x7981;&#x7528;-actuator-&#x7AEF;&#x70B9;">15.1.2 &#x542F;&#x7528;&#x548C;&#x7981;&#x7528; Actuator &#x7AEF;&#x70B9;</h1>
+<p>&#x60A8;&#x53EF;&#x80FD;&#x5DF2;&#x7ECF;&#x6CE8;&#x610F;&#x5230;&#xFF0C;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#x53EA;&#x542F;&#x7528;&#x4E86; <code>/health</code> &#x7AEF;&#x70B9;&#x3002;&#x7531;&#x4E8E;&#x5927;&#x591A;&#x6570; Actuator &#x643A;&#x5E26;&#x6709;&#x654F;&#x611F;&#x4FE1;&#x606F;&#xFF0C;&#x6240;&#x4EE5;&#x5E94;&#x4E88;&#x4EE5;&#x4FDD;&#x62A4;&#x3002;Actuator &#x81EA;&#x8EAB;&#x5E76;&#x6CA1;&#x6709;&#x63D0;&#x4F9B;&#x5B89;&#x5168;&#x63AA;&#x65BD;&#xFF0C;&#x4F46;&#x60A8;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; Spring Security &#x6765;&#x4FDD;&#x62A4; Actuator&#x3002;&#x5BF9;&#x4E8E;&#x7981;&#x7528;&#x7684;&#x7AEF;&#x70B9;&#xFF0C;&#x60A8;&#x53EF;&#x4EE5;&#x624B;&#x52A8;&#x5C06;&#x5176;&#x6253;&#x5F00;&#x3002;</p>
+<p>&#x6709;&#x4E24;&#x4E2A;&#x914D;&#x7F6E;&#x5C5E;&#x6027;&#xFF1A; <code>management.endpoints.web.exposure.include</code> &#x548C; <code>management.endpoints.web.exposure.exclude</code>&#xFF0C; &#x53EF;&#x7528;&#x4E8E;&#x63A7;&#x5236;&#x7AEF;&#x70B9;&#x7684;&#x542F;&#x7528;&#x548C;&#x5173;&#x95ED;&#x3002;&#x4F7F;&#x7528; <code>management.endpoints.web.exposure.include</code>&#xFF0C;&#x60A8;&#x53EF;&#x4EE5;&#x6307;&#x5B9A;&#x8981;&#x542F;&#x7528;&#x7684;&#x7AEF;&#x70B9;&#x3002;&#x4F8B;&#x5982;&#xFF0C;&#x5982;&#x679C;&#x60A8;&#x53EA;&#x60F3;&#x516C;&#x5F00; <code>/health</code>&#x3001;<code>/info</code>&#x3001;<code>/beans</code> &#x548C; <code>/conditions</code>&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x4EE5;&#x4E0B;&#x914D;&#x7F6E;&#xFF1A;</p>
+<pre><code class="lang-yaml"><span class="hljs-attr">management:</span>
+<span class="hljs-attr">  endpoints:</span>
+<span class="hljs-attr">    web:</span>
+<span class="hljs-attr">      exposure:</span>
+<span class="hljs-attr">        include:</span> health,info,beans,conditions
+</code></pre>
+<p><code>management.endpoints.web.exposure.include</code> &#x5C5E;&#x6027;&#x4E5F;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x661F;&#x53F7;&#xFF08;<code>*</code>&#xFF09;&#x901A;&#x914D;&#x7B26;&#xFF0C;&#x5C06;&#x6240;&#x6709; Actuator &#x7AEF;&#x70B9;&#x90FD;&#x542F;&#x7528;&#xFF1A;</p>
+<pre><code class="lang-yaml"><span class="hljs-attr">management:</span>
+<span class="hljs-attr">  endpoints:</span>
+<span class="hljs-attr">    web:</span>
+<span class="hljs-attr">      exposure:</span>
+<span class="hljs-attr">        include:</span> <span class="hljs-string">&apos;*&apos;</span>
+</code></pre>
+<p>&#x5982;&#x679C;&#x8981;&#x542F;&#x7528;&#x9664;&#x5C11;&#x6570;&#x7AEF;&#x70B9;&#x4EE5;&#x5916;&#x7684;&#x6240;&#x6709;&#x7AEF;&#x70B9;&#xFF0C;&#x901A;&#x5E38;&#x66F4;&#x65B9;&#x4FBF;&#x7684;&#x505A;&#x6CD5;&#x662F;&#xFF1A;&#x4F7F;&#x7528;&#x901A;&#x914D;&#x7B26;&#x5C06;&#x5B83;&#x4EEC;&#x5168;&#x90E8;&#x5305;&#x542B;&#x5728;&#x5185;&#xFF0C;&#x7136;&#x540E;&#x663E;&#x5F0F;&#x6392;&#x9664;&#x4E00;&#x4E9B;&#x3002;&#x4F8B;&#x5982;&#xFF0C;&#x542F;&#x7528;&#x6240;&#x6709;&#x4F46;&#x9664;&#x4E86; <code>/threaddump</code> &#x548C; <code>/heapdump</code> &#x4E4B;&#x5916;&#x7684; Actuator &#x7AEF;&#x70B9;&#x3002;&#x60A8;&#x53EF;&#x4EE5;&#x50CF;&#x4E0B;&#x9762;&#x8FD9;&#x6837;&#x8BBE;&#x7F6E; <code>management.endpoints.web.exposure.include</code> &#x548C; <code>management.endpoints.web.exposure.exclude</code> &#x5C5E;&#x6027;&#xFF1A;</p>
+<pre><code class="lang-yaml"><span class="hljs-attr">management:</span>
+<span class="hljs-attr">  endpoints:</span>
+<span class="hljs-attr">    web:</span>
+<span class="hljs-attr">      exposure:</span>
+<span class="hljs-attr">        include:</span> <span class="hljs-string">&apos;*&apos;</span>
+<span class="hljs-attr">        exclude:</span> threaddump,heapdump
+</code></pre>
+<p>&#x5982;&#x679C;&#x60A8;&#x51B3;&#x5B9A;&#x4E0D;&#x4EC5;&#x4EC5;&#x542F;&#x7528; <code>/health</code> &#x548C; <code>/info</code>&#xFF0C;&#x90A3;&#x4E48;&#x914D;&#x7F6E; Spring Security &#x4EE5;&#x9650;&#x5236;&#x5BF9;&#x5176;&#x4ED6;&#x7AEF;&#x70B9;&#x7684;&#x4EFB;&#x610F;&#x8BBF;&#x95EE;&#x662F;&#x4E2A;&#x597D;&#x4E3B;&#x610F;&#x3002;&#x6211;&#x4EEC;&#x5C06;&#x5728;&#x7B2C; 15.4 &#x8282;&#x8BA8;&#x8BBA;&#x5982;&#x4F55;&#x4FDD;&#x62A4; Actuator &#x7AEF;&#x70B9;&#x3002;&#x73B0;&#x5728;&#xFF0C;&#x8BA9;&#x6211;&#x4EEC;&#x770B;&#x770B;&#x5982;&#x4F55;&#x8BBF;&#x95EE;&#x8FD9;&#x4E9B;&#x5DF2;&#x7ECF;&#x542F;&#x7528;&#x7684; HTTP &#x7AEF;&#x70B9;&#x3002;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="15.1.1-Configuring-Actuator's-base-path.html" class="navigation navigation-prev " aria-label="Previous page: 15.1.1 配置 Actuator 基本路径">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../15.2-Consuming-Actuator-endpoints/Introduction.html" class="navigation navigation-next " aria-label="Next page: 15.2 使用 Actuator 端点">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"15.1.2 启用和禁用 Actuator 端点","level":"2.1.1.2","depth":3,"next":{"title":"15.2 使用 Actuator 端点","level":"2.1.2","depth":2,"path":"Chapter-15/15.2-Consuming-Actuator-endpoints/Introduction.md","ref":"Chapter-15/15.2-Consuming-Actuator-endpoints/Introduction.md","articles":[{"title":"15.2.1 获取重要的应用程序信息","level":"2.1.2.1","depth":3,"path":"Chapter-15/15.2-Consuming-Actuator-endpoints/15.2.1-Fetching-essential-application-information.md","ref":"Chapter-15/15.2-Consuming-Actuator-endpoints/15.2.1-Fetching-essential-application-information.md","articles":[]},{"title":"15.2.2 查看配置详细信息","level":"2.1.2.2","depth":3,"path":"Chapter-15/15.2-Consuming-Actuator-endpoints/15.2.2-Viewing-configuration-details.md","ref":"Chapter-15/15.2-Consuming-Actuator-endpoints/15.2.2-Viewing-configuration-details.md","articles":[]},{"title":"15.2.3 查看应用程序活动","level":"2.1.2.3","depth":3,"path":"Chapter-15/15.2-Consuming-Actuator-endpoints/15.2.3-Viewing-application-activity.md","ref":"Chapter-15/15.2-Consuming-Actuator-endpoints/15.2.3-Viewing-application-activity.md","articles":[]},{"title":"15.2.4 利用运行时指标","level":"2.1.2.4","depth":3,"path":"Chapter-15/15.2-Consuming-Actuator-endpoints/15.2.4-Tapping-runtime-metrics.md","ref":"Chapter-15/15.2-Consuming-Actuator-endpoints/15.2.4-Tapping-runtime-metrics.md","articles":[]}]},"previous":{"title":"15.1.1 配置 Actuator 基本路径","level":"2.1.1.1","depth":3,"path":"Chapter-15/15.1-Introducing-Actuator/15.1.1-Configuring-Actuator's-base-path.md","ref":"Chapter-15/15.1-Introducing-Actuator/15.1.1-Configuring-Actuator's-base-path.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Chapter-15/15.1-Introducing-Actuator/15.1.2-Enabling-and-disabling-Actuator-endpoints.md","mtime":"2021-09-29T02:54:34.070Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-09-30T05:46:31.142Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
