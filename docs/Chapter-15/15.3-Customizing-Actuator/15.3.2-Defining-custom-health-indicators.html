@@ -1093,40 +1093,38 @@
 <p>&#x5BF9;&#x4E8E;&#x4E00;&#x4E9B;&#x5E38;&#x89C1;&#x7684;&#x5916;&#x90E8;&#x7CFB;&#x7EDF;&#xFF0C;&#x4E0E; Spring &#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x96C6;&#x6210;&#x65F6;&#xFF0C;Spring Boot &#x9644;&#x5E26;&#x4E86;&#x51E0;&#x4E2A;&#x73B0;&#x6210;&#x7684;&#x5065;&#x5EB7;&#x72B6;&#x51B5;&#x6307;&#x793A;&#x5668;&#xFF0C;&#x53EF;&#x63D0;&#x4F9B;&#x5B83;&#x4EEC;&#x7684;&#x5065;&#x5EB7;&#x72B6;&#x51B5;&#x3002;&#x4F46;&#x6709;&#x65F6;&#xFF0C;&#x60A8;&#x53EF;&#x80FD;&#x53D1;&#x73B0;&#x6709;&#x4E00;&#x4E9B;&#x5916;&#x90E8;&#x7CFB;&#x7EDF;&#xFF0C;Spring Boot &#x5E76;&#x6CA1;&#x6709;&#x4E3A;&#x5176;&#x63D0;&#x4F9B;&#x5065;&#x5EB7;&#x72B6;&#x51B5;&#x6307;&#x793A;&#x5668;&#x3002;</p>
 <p>&#x4F8B;&#x5982;&#xFF0C;&#x60A8;&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x53EF;&#x80FD;&#x4E0E;&#x9057;&#x7559;&#x5927;&#x578B;&#x673A;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x96C6;&#x6210;&#xFF0C;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7684;&#x5065;&#x5EB7;&#x72B6;&#x51B5;&#xFF0C;&#x53EF;&#x80FD;&#x4F1A;&#x53D7;&#x5230;&#x9057;&#x7559;&#x7CFB;&#x7EDF;&#x5065;&#x5EB7;&#x72B6;&#x51B5;&#x7684;&#x5F71;&#x54CD;&#x3002;&#x8981;&#x521B;&#x5EFA;&#x81EA;&#x5B9A;&#x4E49;&#x5065;&#x5EB7;&#x72B6;&#x51B5;&#x6307;&#x793A;&#x5668;&#xFF0C;&#x9700;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x5B9E;&#x73B0; HealthIndicator &#x63A5;&#x53E3;&#x7684;&#x7C7B;&#x3002;</p>
 <p>&#x5B9E;&#x9645;&#x4E0A;&#xFF0C;Taco Cloud &#x670D;&#x52A1;&#x5E76;&#x4E0D;&#x9700;&#x8981;&#x81EA;&#x5B9A;&#x4E49;&#x5065;&#x5EB7;&#x6307;&#x6807;&#xFF0C;&#x56E0;&#x4E3A; Spring Boot &#x6240;&#x63D0;&#x4F9B;&#x7684;&#x5DF2;&#x7ECF;&#x8DB3;&#x591F;&#x4E86;&#x3002;&#x4F46;&#x4E3A;&#x4E86;&#x5C55;&#x793A;&#x5982;&#x4F55;&#x5F00;&#x53D1;&#x81EA;&#x5B9A;&#x4E49;&#x5065;&#x5EB7;&#x6307;&#x793A;&#x5668;&#xFF0C;&#x8003;&#x8651;&#x4EE5;&#x4E0B;&#x7A0B;&#x5E8F;&#x6E05;&#x5355;&#xFF0C;&#x5B83;&#x5C55;&#x793A;&#x4E86; HealthIndicator &#x7684;&#x7B80;&#x5355;&#x5B9E;&#x73B0;&#x3002;&#x5176;&#x4E2D;&#x9009;&#x62E9;&#x4E00;&#x5929;&#x4E2D;&#x67D0;&#x4E2A;&#x65F6;&#x95F4;&#xFF0C;&#x968F;&#x673A;&#x5730;&#x5C55;&#x793A;&#x5176;&#x5065;&#x5EB7;&#x72B6;&#x51B5;&#x3002;</p>
-<p>
-```java
-package tacos.tacos;
-import java.util.Calendar;
-import org.springframework.boot.actuate.health.Health;
-import org.springframework.boot.actuate.health.HealthIndicator;
-import org.springframework.stereotype.Component;
-@Component
-public class WackoHealthIndicator implements HealthIndicator {
-@Override
-  public Health health() {
-    int hour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY);
-    if (hour &gt; 12) {
-        return Health
+<p>&#x7A0B;&#x5E8F;&#x6E05;&#x5355; 15.5 HealthIndicator &#x7684;&#x975E;&#x6B63;&#x5E38;&#x5B9E;&#x73B0;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">package</span> tacos.tacos;
+<span class="hljs-keyword">import</span> java.util.Calendar;
+<span class="hljs-keyword">import</span> org.springframework.boot.actuate.health.Health;
+<span class="hljs-keyword">import</span> org.springframework.boot.actuate.health.HealthIndicator;
+<span class="hljs-keyword">import</span> org.springframework.stereotype.Component;
+<span class="hljs-meta">@Component</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">WackoHealthIndicator</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">HealthIndicator</span> </span>{
+<span class="hljs-meta">@Override</span>
+  <span class="hljs-function"><span class="hljs-keyword">public</span> Health <span class="hljs-title">health</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">int</span> hour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY);
+    <span class="hljs-keyword">if</span> (hour &gt; <span class="hljs-number">12</span>) {
+        <span class="hljs-keyword">return</span> Health
             .outOfService()
-            .withDetail(&quot;reason&quot;,
-                &quot;I&apos;m out of service after lunchtime&quot;)
-            .withDetail(&quot;hour&quot;, hour)
+            .withDetail(<span class="hljs-string">&quot;reason&quot;</span>,
+                <span class="hljs-string">&quot;I&apos;m out of service after lunchtime&quot;</span>)
+            .withDetail(<span class="hljs-string">&quot;hour&quot;</span>, hour)
             .build();
     }
-    if (Math.random() &lt; 0.1) {
-        return Health
+    <span class="hljs-keyword">if</span> (Math.random() &lt; <span class="hljs-number">0.1</span>) {
+        <span class="hljs-keyword">return</span> Health
             .down()
-            .withDetail(&quot;reason&quot;, &quot;I break 10% of the time&quot;)
+            .withDetail(<span class="hljs-string">&quot;reason&quot;</span>, <span class="hljs-string">&quot;I break 10% of the time&quot;</span>)
             .build();
     }
-    return Health
+    <span class="hljs-keyword">return</span> Health
         .up()
-        .withDetail(&quot;reason&quot;, &quot;All is good!&quot;)
+        .withDetail(<span class="hljs-string">&quot;reason&quot;</span>, <span class="hljs-string">&quot;All is good!&quot;</span>)
         .build();
   }
 }
-```
-</p>
+</code></pre>
 <p>&#x8FD9;&#x4E2A;&#x75AF;&#x72C2;&#x7684;&#x5065;&#x5EB7;&#x6307;&#x793A;&#x5668;&#x9996;&#x5148;&#x68C0;&#x67E5;&#x5F53;&#x524D;&#x65F6;&#x95F4;&#xFF0C;&#x5982;&#x679C;&#x662F;&#x4E2D;&#x5348;&#x4E4B;&#x540E;&#xFF0C;&#x8FD4;&#x56DE; OUT_OF_SERVICE &#x7684;&#x5065;&#x5EB7;&#x72B6;&#x51B5;&#xFF0C;&#x5E76;&#x63D0;&#x4F9B;&#x4E00;&#x4E9B;&#x8BE6;&#x7EC6;&#x4FE1;&#x606F;&#x6765;&#x89E3;&#x91CA;&#x6545;&#x969C;&#x539F;&#x56E0;&#x3002;</p>
 <p>&#x5373;&#x4F7F;&#x662F;&#x5728;&#x5348;&#x9910;&#x524D;&#xFF0C;&#x5065;&#x5EB7;&#x6307;&#x6807;&#x4E5F;&#x6709; 10% &#x7684;&#x53EF;&#x80FD;&#x6027;&#x4F1A;&#x62A5;&#x544A; DOWN &#x7684;&#x72B6;&#x6001;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x4F7F;&#x7528;&#x4E00;&#x4E2A;&#x968F;&#x673A;&#x6570;&#x6765;&#x51B3;&#x5B9A;&#x5B83;&#x662F;&#x5426;&#x6B63;&#x5E38;&#x8FD0;&#x884C;&#x3002;&#x5982;&#x679C;&#x968F;&#x673A;&#x6570;&#x5B57;&#x5C0F;&#x4E8E; 0.1&#xFF0C;&#x72B6;&#x6001;&#x5C06;&#x62A5;&#x544A;&#x4E3A; DOWN &#x3002;&#x5426;&#x5219;&#xFF0C;&#x72B6;&#x6001;&#x4E3A; UP&#x3002;</p>
 <p>&#x663E;&#x7136;&#xFF0C;&#x6E05;&#x5355; 15.5 &#x4E2D;&#x7684;&#x5065;&#x5EB7;&#x72B6;&#x51B5;&#x6307;&#x793A;&#x5668;&#xFF0C;&#x5728;&#x771F;&#x5B9E;&#x73AF;&#x5883;&#x4E2D;&#x4EFB;&#x4F55;&#x60C5;&#x51B5;&#x4E0B;&#x90FD;&#x4E0D;&#x4F1A;&#x6709;&#x7528;&#x3002;&#x4F46;&#x662F;&#x60F3;&#x8C61;&#x4E00;&#x4E0B;&#xFF0C;&#x5982;&#x679C;&#x4EE3;&#x7801;&#x4E2D;&#x4E0D;&#x662F;&#x7528;&#x968F;&#x673A;&#x6570;&#xFF0C;&#x800C;&#x662F;&#x8FDC;&#x7A0B;&#x8C03;&#x7528;&#x67D0;&#x4E2A;&#x5916;&#x90E8;&#x7CFB;&#x7EDF;&#x5E76;&#x786E;&#x5B9A;&#x5176;&#x72B6;&#x6001;&#x3002;&#x5728;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x8FD9;&#x5C06;&#x662F;&#x4E00;&#x4E2A;&#x975E;&#x5E38;&#x6709;&#x7528;&#x7684;&#x5065;&#x5EB7;&#x72B6;&#x51B5;&#x6307;&#x793A;&#x5668;&#x3002;</p>
@@ -1173,7 +1171,7 @@ public class WackoHealthIndicator implements HealthIndicator {
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"15.3.2 自定义健康指标","level":"2.1.3.2","depth":3,"next":{"title":"15.3.3 注册自定义指标","level":"2.1.3.3","depth":3,"path":"Chapter-15/15.3-Customizing-Actuator/15.3.3-Registering-custom-metrics.md","ref":"Chapter-15/15.3-Customizing-Actuator/15.3.3-Registering-custom-metrics.md","articles":[]},"previous":{"title":"15.3.1 向 /info 端点提供信息","level":"2.1.3.1","depth":3,"path":"Chapter-15/15.3-Customizing-Actuator/15.3.1-Contributing-information-to-the-info-endpoint.md","ref":"Chapter-15/15.3-Customizing-Actuator/15.3.1-Contributing-information-to-the-info-endpoint.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Chapter-15/15.3-Customizing-Actuator/15.3.2-Defining-custom-health-indicators.md","mtime":"2021-09-29T03:26:08.708Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-09-30T05:46:31.142Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"15.3.2 自定义健康指标","level":"2.1.3.2","depth":3,"next":{"title":"15.3.3 注册自定义指标","level":"2.1.3.3","depth":3,"path":"Chapter-15/15.3-Customizing-Actuator/15.3.3-Registering-custom-metrics.md","ref":"Chapter-15/15.3-Customizing-Actuator/15.3.3-Registering-custom-metrics.md","articles":[]},"previous":{"title":"15.3.1 向 /info 端点提供信息","level":"2.1.3.1","depth":3,"path":"Chapter-15/15.3-Customizing-Actuator/15.3.1-Contributing-information-to-the-info-endpoint.md","ref":"Chapter-15/15.3-Customizing-Actuator/15.3.1-Contributing-information-to-the-info-endpoint.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Chapter-15/15.3-Customizing-Actuator/15.3.2-Defining-custom-health-indicators.md","mtime":"2021-09-30T06:22:52.852Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-09-30T06:27:04.383Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

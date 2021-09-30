@@ -1123,7 +1123,7 @@
 <p><strong>&#x89E3;&#x91CA;&#x81EA;&#x52A8;&#x914D;&#x7F6E;</strong></p>
 <p>&#x5982;&#x60A8;&#x6240;&#x89C1;&#xFF0C;&#x81EA;&#x52A8;&#x914D;&#x7F6E;&#x662F; Spring Boot &#x63D0;&#x4F9B;&#x7684;&#x6700;&#x5F3A;&#x5927;&#x7684;&#x529F;&#x80FD;&#x4E4B;&#x4E00;&#x3002;&#x4F46;&#x662F;&#xFF0C;&#x6709;&#x65F6;&#x60A8;&#x53EF;&#x80FD;&#x60F3;&#x77E5;&#x9053;&#x4E3A;&#x4EC0;&#x4E48;&#x4F1A;&#x81EA;&#x52A8;&#x914D;&#x7F6E;&#x67D0;&#x4E9B;&#x5185;&#x5BB9;&#x3002;&#x6216;&#x8005;&#x60A8;&#x53EF;&#x80FD;&#x671F;&#x671B;&#x67D0;&#x4E9B;&#x4E1C;&#x897F;&#x88AB;&#x81EA;&#x52A8;&#x914D;&#x7F6E;&#xFF0C;&#x60F3;&#x77E5;&#x9053;&#x5B83;&#x4E3A;&#x4EC0;&#x4E48;&#x6CA1;&#x6709;&#x88AB;&#x81EA;&#x52A8;&#x914D;&#x7F6E;&#x3002;&#x5728;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x60A8;&#x53EF;&#x4EE5;&#x5411; <code>/conditions</code> &#x53D1;&#x51FA; GET &#x8BF7;&#x6C42;&#xFF0C;&#x4EE5;&#x4E86;&#x89E3;&#x81EA;&#x52A8;&#x914D;&#x7F6E;&#x7684;&#x60C5;&#x51B5;&#x3002;</p>
 <p><code>/conditions</code> &#x8FD4;&#x56DE;&#x7684;&#x81EA;&#x52A8;&#x914D;&#x7F6E;&#x62A5;&#x544A;&#x5206;&#x4E3A;&#x4E09;&#x90E8;&#x5206;&#xFF1A;positiveMatches&#xFF08;&#x6761;&#x4EF6;&#x914D;&#x7F6E;&#x901A;&#x8FC7;&#xFF09;&#x3001;negativeMatches&#xFF08;&#x6761;&#x4EF6;&#x914D;&#x7F6E;&#x5931;&#x8D25;&#xFF09;&#x548C; unconditionalClasses&#xFF08;&#x65E0;&#x6761;&#x4EF6;&#x7C7B;&#xFF09;&#x3002;&#x4EE5;&#x4E0B;&#x662F; <code>/conditions</code> &#x8BF7;&#x6C42;&#x7684;&#x54CD;&#x5E94;&#x7684;&#x7247;&#x6BB5;&#xFF0C;&#x793A;&#x4F8B;&#x663E;&#x793A;&#x4E86;&#x6BCF;&#x4E2A;&#x90E8;&#x5206;&#xFF1A;</p>
-<pre><code class="lang-text">{
+<pre><code class="lang-json">{
   &quot;contexts&quot;: {
     &quot;application-1&quot;: {
       &quot;positiveMatches&quot;: {
@@ -1170,39 +1170,38 @@
 <p>&#x9664;&#x4E86;&#x4E86;&#x89E3;&#x60A8;&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F; bean &#x5982;&#x4F55;&#x8FDE;&#x63A5;&#x5728;&#x4E00;&#x8D77;&#x4E4B;&#x5916;&#xFF0C;&#x60A8;&#x53EF;&#x80FD;&#x8FD8;&#x5BF9;&#x4E86;&#x89E3;&#x54EA;&#x4E9B;&#x73AF;&#x5883;&#x5C5E;&#x6027;&#x53EF;&#x7528;&#xFF0C;&#x4EE5;&#x53CA;&#x54EA;&#x4E9B;&#x914D;&#x7F6E;&#x5C5E;&#x6027;&#x6CE8;&#x5165;&#x4E86; bean &#x4E2D;&#x611F;&#x5174;&#x8DA3;&#x3002;</p>
 <p>&#x5F53;&#x60A8;&#x5411; <code>/env</code> &#x7AEF;&#x70B9;&#x53D1;&#x51FA; GET &#x8BF7;&#x6C42;&#x65F6;&#xFF0C;&#x60A8;&#x5C06;&#x6536;&#x5230;&#x4E00;&#x4E2A;&#x76F8;&#x5F53;&#x957F;&#x7684;&#xFF0C;&#x6765;&#x81EA; Spring &#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x6B63;&#x5728;&#x8FD0;&#x884C;&#x7684;&#xFF0C;&#x6240;&#x6709;&#x5C5E;&#x6027;&#x6765;&#x6E90;&#x7684;&#x5C5E;&#x6027;&#x5217;&#x8868;&#x3002;&#x8FD9;&#x5305;&#x62EC;&#x6765;&#x81EA;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x7684;&#x5C5E;&#x6027;&#x3001;JVM &#x7CFB;&#x7EDF;&#x5C5E;&#x6027;&#x3001;<code>application.properties</code> &#x548C; <code>application.yml</code> &#x6587;&#x4EF6;&#xFF0C;&#x751A;&#x81F3; Spring Cloud Config Server&#xFF08;&#x5982;&#x679C;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x662F; Config Server &#x7684;&#x5BA2;&#x6237;&#x7AEF;&#xFF09;&#x3002;</p>
 <p>&#x4E0B;&#x9762;&#x7684;&#x6E05;&#x5355;&#x663E;&#x793A;&#x4E86;&#xFF0C;&#x60A8;&#x53EF;&#x80FD;&#x4ECE; <code>/env</code> &#x7AEF;&#x70B9;&#x83B7;&#x5F97;&#x7684;&#x54CD;&#x5E94;&#x6570;&#x636E;&#x7684;&#x4E00;&#x4E2A;&#x5927;&#x5927;&#x7B80;&#x5316;&#x7684;&#x793A;&#x4F8B;&#xFF0C;&#x8BA9;&#x60A8;&#x5BF9;&#x5B83;&#x63D0;&#x4F9B;&#x7684;&#x4FE1;&#x606F;&#x6709;&#x6240;&#x4E86;&#x89E3;&#x3002;</p>
-<p>
-```bash
-$ curl localhost:8081/actuator/env
+<p>&#x6E05;&#x5355; 15.1 &#x6765;&#x81EA; /env &#x7AEF;&#x70B9;&#x7684;&#x6570;&#x636E;</p>
+<pre><code class="lang-bash">$ curl localhost:8081/actuator/env
 {
-  &quot;activeProfiles&quot;: [
-    &quot;development&quot;
+  <span class="hljs-string">&quot;activeProfiles&quot;</span>: [
+    <span class="hljs-string">&quot;development&quot;</span>
   ],
-  &quot;propertySources&quot;: [
+  <span class="hljs-string">&quot;propertySources&quot;</span>: [
   ...
   {
-    &quot;name&quot;: &quot;systemEnvironment&quot;,
-    &quot;properties&quot;: {
-      &quot;PATH&quot;: {
-        &quot;value&quot;: &quot;/usr/bin:/bin:/usr/sbin:/sbin&quot;,
-        &quot;origin&quot;: &quot;System Environment Property \&quot;PATH\&quot;&quot;
+    <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;systemEnvironment&quot;</span>,
+    <span class="hljs-string">&quot;properties&quot;</span>: {
+      <span class="hljs-string">&quot;PATH&quot;</span>: {
+        <span class="hljs-string">&quot;value&quot;</span>: <span class="hljs-string">&quot;/usr/bin:/bin:/usr/sbin:/sbin&quot;</span>,
+        <span class="hljs-string">&quot;origin&quot;</span>: <span class="hljs-string">&quot;System Environment Property \&quot;PATH\&quot;&quot;</span>
       },
       ...
-      &quot;HOME&quot;: {
-        &quot;value&quot;: &quot;/Users/habuma&quot;,
-        &quot;origin&quot;: &quot;System Environment Property \&quot;HOME\&quot;&quot;
+      <span class="hljs-string">&quot;HOME&quot;</span>: {
+        <span class="hljs-string">&quot;value&quot;</span>: <span class="hljs-string">&quot;/Users/habuma&quot;</span>,
+        <span class="hljs-string">&quot;origin&quot;</span>: <span class="hljs-string">&quot;System Environment Property \&quot;HOME\&quot;&quot;</span>
       }
     }
   },
   {
-    &quot;name&quot;: &quot;applicationConfig: [classpath:/application.yml]&quot;,
-    &quot;properties&quot;: {
-      &quot;spring.application.name&quot;: {
-        &quot;value&quot;: &quot;ingredient-service&quot;,
-        &quot;origin&quot;: &quot;class path resource [application.yml]:3:11&quot;
+    <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;applicationConfig: [classpath:/application.yml]&quot;</span>,
+    <span class="hljs-string">&quot;properties&quot;</span>: {
+      <span class="hljs-string">&quot;spring.application.name&quot;</span>: {
+        <span class="hljs-string">&quot;value&quot;</span>: <span class="hljs-string">&quot;ingredient-service&quot;</span>,
+        <span class="hljs-string">&quot;origin&quot;</span>: <span class="hljs-string">&quot;class path resource [application.yml]:3:11&quot;</span>
       },
-      &quot;server.port&quot;: {
-        &quot;value&quot;: 8081,
-        &quot;origin&quot;: &quot;class path resource [application.yml]:9:9&quot;
+      <span class="hljs-string">&quot;server.port&quot;</span>: {
+        <span class="hljs-string">&quot;value&quot;</span>: 8081,
+        <span class="hljs-string">&quot;origin&quot;</span>: <span class="hljs-string">&quot;class path resource [application.yml]:9:9&quot;</span>
       },
       ...
     }
@@ -1210,8 +1209,7 @@ $ curl localhost:8081/actuator/env
   ...
   ]
 }
-```
-</p>
+</code></pre>
 <p>&#x5C3D;&#x7BA1; <code>/env</code> &#x7684;&#x5B8C;&#x6574;&#x54CD;&#x5E94;&#x63D0;&#x4F9B;&#x4E86;&#x66F4;&#x591A;&#x4FE1;&#x606F;&#xFF0C;&#x4F46;&#x6E05;&#x5355; 15.1 &#x4E2D;&#x5305;&#x542B;&#x4E86;&#x90A3;&#x4E9B;&#x9700;&#x8981;&#x5173;&#x6CE8;&#x7684;&#x5143;&#x7D20;&#x3002;&#x9996;&#x5148;&#xFF0C;&#x8BF7;&#x6CE8;&#x610F;&#x54CD;&#x5E94;&#x9876;&#x90E8;&#x662F;&#x4E00;&#x4E2A;&#x540D;&#x4E3A; activeProfiles &#x7684;&#x5B57;&#x6BB5;&#x3002;&#x73B0;&#x5728;&#x7684;&#x914D;&#x7F6E;&#x8868;&#x660E; development &#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x5904;&#x4E8E;&#x6D3B;&#x52A8;&#x72B6;&#x6001;&#x3002; &#x5982;&#x679C;&#x4EFB;&#x4F55;&#x5176;&#x4ED6;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x5904;&#x4E8E;&#x6D3B;&#x52A8;&#x72B6;&#x6001;&#xFF0C;&#x4E5F;&#x5C06;&#x5217;&#x51FA;&#x8FD9;&#x4E9B;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x3002;</p>
 <p>&#x63A5;&#x4E0B;&#x6765;&#xFF0C;propertySources &#x5B57;&#x6BB5;&#x662F;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#xFF0C;&#x5176;&#x4E2D;&#x5305;&#x542B; Spring &#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x73AF;&#x5883;&#x4E2D;&#x6BCF;&#x4E2A;&#x5C5E;&#x6027;&#x6E90;&#x7684;&#x6761;&#x76EE;&#x3002;&#x5728;&#x6E05;&#x5355; 15.1 &#x4E2D;&#xFF0C;&#x53EA;&#x663E;&#x793A;&#x4E86; systemEnvironment &#x548C;&#x5F15;&#x7528; application.yml &#x6587;&#x4EF6;&#x7684; applicationConfig &#x5C5E;&#x6027;&#x6E90;&#x3002;</p>
 <p>&#x5728;&#x6BCF;&#x4E2A;&#x5C5E;&#x6027;&#x6E90;&#x4E2D;&#xFF0C;&#x5217;&#x51FA;&#x4E86;&#x8BE5;&#x6E90;&#x63D0;&#x4F9B;&#x7684;&#x6240;&#x6709;&#x5C5E;&#x6027;&#xFF0C;&#x5E76;&#x4E0E;&#x5176;&#x503C;&#x914D;&#x5BF9;&#x3002;&#x5728; application.yml &#x5C5E;&#x6027;&#x6E90;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x6BCF;&#x4E2A;&#x5C5E;&#x6027;&#x7684; origin &#x5B57;&#x6BB5;&#x51C6;&#x786E;&#x8BF4;&#x660E;&#x5C5E;&#x6027;&#x8BBE;&#x7F6E;&#x7684;&#x4F4D;&#x7F6E;&#xFF0C;&#x5305;&#x62EC;&#x5728; application.yml &#x4E2D;&#x7684;&#x884C;&#x548C;&#x5217;&#x3002;</p>
@@ -1263,39 +1261,38 @@ $ curl localhost:8081/actuator/env
 <p><strong>&#x6D4F;&#x89C8; HTTP &#x8BF7;&#x6C42;&#x6620;&#x5C04;</strong></p>
 <p>&#x5C3D;&#x7BA1; Spring MVC&#xFF08;&#x548C; Spring WebFlux &#x7684;&#xFF09;&#x7F16;&#x7A0B;&#x6A21;&#x578B;&#xFF0C;&#x901A;&#x8FC7;&#x7B80;&#x5355;&#x5730;&#x4F7F;&#x7528;&#x8BF7;&#x6C42;&#x6620;&#x5C04;&#x6CE8;&#x91CA;&#xFF0C;&#x5BF9;&#x65B9;&#x6CD5;&#x8FDB;&#x884C;&#x6CE8;&#x91CA;&#x6765;&#x8F7B;&#x677E;&#x5904;&#x7406; HTTP &#x8BF7;&#x6C42;&#xFF0C;&#x4F46;&#x6709;&#x65F6;&#x5F88;&#x96BE;&#x5168;&#x9762;&#x4E86;&#x89E3;&#xFF0C;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x53EF;&#x4EE5;&#x5904;&#x7406;&#x7684;&#x6240;&#x6709;&#x7C7B;&#x578B;&#x7684; HTTP &#x8BF7;&#x6C42;&#xFF0C;&#x4EE5;&#x53CA;&#x5904;&#x7406;&#x8FD9;&#x4E9B;&#x8BF7;&#x6C42;&#x7684;&#x7EC4;&#x4EF6;&#x7C7B;&#x578B;&#x3002;</p>
 <p>Actuator &#x7684; <code>/mappings</code> &#x7AEF;&#x70B9;&#x63D0;&#x4F9B;&#x4E86;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x4E2D;&#x6BCF;&#x4E2A; HTTP &#x8BF7;&#x6C42;&#x5904;&#x7406;&#x7A0B;&#x5E8F;&#x7684;&#x4E00;&#x7AD9;&#x5F0F;&#x89C6;&#x56FE;&#xFF0C;&#x65E0;&#x8BBA;&#x662F;&#x6765;&#x81EA; Spring MVC &#x63A7;&#x5236;&#x5668;&#x8FD8;&#x662F; Actuator &#x81EA;&#x5DF1;&#x7684;&#x7AEF;&#x70B9;&#x4E4B;&#x4E00;&#x3002;&#x8981;&#x83B7;&#x53D6; Spring Boot &#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x4E2D;&#x6240;&#x6709;&#x7AEF;&#x70B9;&#x7684;&#x5B8C;&#x6574;&#x5217;&#x8868;&#xFF0C;&#x8BF7;&#x5411; <code>/mappings</code> &#x7AEF;&#x70B9;&#x53D1;&#x51FA; GET &#x8BF7;&#x6C42;&#xFF0C;&#x60A8;&#x53EF;&#x80FD;&#x4F1A;&#x6536;&#x5230;&#x7C7B;&#x4F3C;&#x4E8E;&#x4E0B;&#x9762;&#x663E;&#x793A;&#x7684;&#x7B80;&#x5316;&#x54CD;&#x5E94;&#x7684;&#x5185;&#x5BB9;&#x3002;</p>
-<p>
-```bash
-$ curl localhost:8081/actuator/mappings | jq
+<p>&#x6E05;&#x5355; 15.2 &#x5982; /mappings &#x7AEF;&#x70B9;&#x6240;&#x793A;&#x7684; HTTP &#x8BF7;&#x6C42;&#x6620;&#x5C04;</p>
+<pre><code class="lang-bash">$ curl localhost:8081/actuator/mappings | jq
 {
-  &quot;contexts&quot;: {
-    &quot;application-1&quot;: {
-      &quot;mappings&quot;: {
-        &quot;dispatcherHandlers&quot;: {
-          &quot;webHandler&quot;: [
+  <span class="hljs-string">&quot;contexts&quot;</span>: {
+    <span class="hljs-string">&quot;application-1&quot;</span>: {
+      <span class="hljs-string">&quot;mappings&quot;</span>: {
+        <span class="hljs-string">&quot;dispatcherHandlers&quot;</span>: {
+          <span class="hljs-string">&quot;webHandler&quot;</span>: [
             ...
             {
-              &quot;predicate&quot;: &quot;{[/ingredients],methods=[GET]}&quot;,
-              &quot;handler&quot;: &quot;public
-              reactor.core.publisher.Flux<tacos.ingredients.ingredient>
-              tacos.ingredients.IngredientsController.allIngredients()&quot;,
-              &quot;details&quot;: {
-                &quot;handlerMethod&quot;: {
-                  &quot;className&quot;: &quot;tacos.ingredients.IngredientsController&quot;,
-                  &quot;name&quot;: &quot;allIngredients&quot;,
-                  &quot;descriptor&quot;: &quot;()Lreactor/core/publisher/Flux;&quot;
+              <span class="hljs-string">&quot;predicate&quot;</span>: <span class="hljs-string">&quot;{[/ingredients],methods=[GET]}&quot;</span>,
+              <span class="hljs-string">&quot;handler&quot;</span>: <span class="hljs-string">&quot;public
+              reactor.core.publisher.Flux&lt;tacos.ingredients.Ingredient&gt;
+              tacos.ingredients.IngredientsController.allIngredients()&quot;</span>,
+              <span class="hljs-string">&quot;details&quot;</span>: {
+                <span class="hljs-string">&quot;handlerMethod&quot;</span>: {
+                  <span class="hljs-string">&quot;className&quot;</span>: <span class="hljs-string">&quot;tacos.ingredients.IngredientsController&quot;</span>,
+                  <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;allIngredients&quot;</span>,
+                  <span class="hljs-string">&quot;descriptor&quot;</span>: <span class="hljs-string">&quot;()Lreactor/core/publisher/Flux;&quot;</span>
                 },
-                &quot;handlerFunction&quot;: null,
-                &quot;requestMappingConditions&quot;: {
-                  &quot;consumes&quot;: [],
-                  &quot;headers&quot;: [],
-                  &quot;methods&quot;: [
-                    &quot;GET&quot;
+                <span class="hljs-string">&quot;handlerFunction&quot;</span>: null,
+                <span class="hljs-string">&quot;requestMappingConditions&quot;</span>: {
+                  <span class="hljs-string">&quot;consumes&quot;</span>: [],
+                  <span class="hljs-string">&quot;headers&quot;</span>: [],
+                  <span class="hljs-string">&quot;methods&quot;</span>: [
+                    <span class="hljs-string">&quot;GET&quot;</span>
                   ],
-                  &quot;params&quot;: [],
-                  &quot;patterns&quot;: [
-                    &quot;/ingredients&quot;
+                  <span class="hljs-string">&quot;params&quot;</span>: [],
+                  <span class="hljs-string">&quot;patterns&quot;</span>: [
+                    <span class="hljs-string">&quot;/ingredients&quot;</span>
                   ],
-                  &quot;produces&quot;: []
+                  <span class="hljs-string">&quot;produces&quot;</span>: []
                 }
               }
             },
@@ -1303,18 +1300,17 @@ $ curl localhost:8081/actuator/mappings | jq
             ]
           }
         },
-        &quot;parentId&quot;: &quot;application-1&quot;
+        <span class="hljs-string">&quot;parentId&quot;</span>: <span class="hljs-string">&quot;application-1&quot;</span>
       },
-      &quot;bootstrap&quot;: {
-        &quot;mappings&quot;: {
-          &quot;dispatcherHandlers&quot;: {}
+      <span class="hljs-string">&quot;bootstrap&quot;</span>: {
+        <span class="hljs-string">&quot;mappings&quot;</span>: {
+          <span class="hljs-string">&quot;dispatcherHandlers&quot;</span>: {}
         },
-        &quot;parentId&quot;: null
+        <span class="hljs-string">&quot;parentId&quot;</span>: null
       }
     }
 }
-```
-</tacos.ingredients.ingredient></p>
+</code></pre>
 <p>&#x5728;&#x8FD9;&#x91CC;&#xFF0C;&#x6765;&#x81EA;&#x547D;&#x4EE4; curl &#x7684;&#x54CD;&#x5E94;&#x901A;&#x8FC7;&#x7BA1;&#x9053;&#x4F20;&#x8F93;&#x5230;&#x4E00;&#x4E2A;&#x540D;&#x4E3A; jq &#x7684;&#x89E3;&#x6790;&#x5668;&#x4E2D;&#xFF0C;&#x4EE5;&#x66F4;&#x7F8E;&#x89C2;&#x6613;&#x8BFB;&#x7684;&#x65B9;&#x5F0F;&#x6253;&#x5370; JSON &#x6570;&#x636E;&#x3002;&#x4E3A;&#x7B80;&#x6D01;&#x8D77;&#x89C1;&#xFF0C;&#x6B64;&#x54CD;&#x5E94;&#x5DF2;&#x88AB;&#x5220;&#x8282;&#x4EE5;&#x4EC5;&#x663E;&#x793A;&#x5355;&#x4E2A;&#x8BF7;&#x6C42;&#x5904;&#x7406;&#x7A0B;&#x5E8F;&#x3002;&#x5177;&#x4F53;&#x6765;&#x8BF4;&#xFF0C;&#x5B83;&#x8868;&#x660E;&#x5BF9; <code>/ingredients</code> &#x7684; GET &#x8BF7;&#x6C42;&#x5C06;&#x7531; IngredientsController &#x7684; <code>allIngredients()</code> &#x65B9;&#x6CD5;&#x5904;&#x7406;&#x3002;</p>
 <p><strong>&#x7BA1;&#x7406;&#x65E5;&#x5FD7;&#x7EA7;&#x522B;</strong></p>
 <p>&#x65E5;&#x5FD7;&#x8BB0;&#x5F55;&#x5BF9;&#x4EFB;&#x4F55;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x6765;&#x8BF4;&#x90FD;&#x662F;&#x975E;&#x5E38;&#x91CD;&#x8981;&#x7684;&#x529F;&#x80FD;&#x3002;&#x65E5;&#x5FD7;&#x8BB0;&#x5F55;&#x53EF;&#x4EE5;&#x63D0;&#x4F9B;&#x4E00;&#x79CD;&#x5BA1;&#x8BA1;&#x624B;&#x6BB5;&#xFF0C;&#x4EE5;&#x53CA;&#x4E00;&#x79CD;&#x7C97;&#x7565;&#x7684;&#x8C03;&#x8BD5;&#x624B;&#x6BB5;&#x3002;</p>
@@ -1406,7 +1402,7 @@ $ curl localhost:8081/actuator/mappings | jq
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"15.2.2 查看配置详细信息","level":"2.1.2.2","depth":3,"next":{"title":"15.2.3 查看应用程序活动","level":"2.1.2.3","depth":3,"path":"Chapter-15/15.2-Consuming-Actuator-endpoints/15.2.3-Viewing-application-activity.md","ref":"Chapter-15/15.2-Consuming-Actuator-endpoints/15.2.3-Viewing-application-activity.md","articles":[]},"previous":{"title":"15.2.1 获取重要的应用程序信息","level":"2.1.2.1","depth":3,"path":"Chapter-15/15.2-Consuming-Actuator-endpoints/15.2.1-Fetching-essential-application-information.md","ref":"Chapter-15/15.2-Consuming-Actuator-endpoints/15.2.1-Fetching-essential-application-information.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Chapter-15/15.2-Consuming-Actuator-endpoints/15.2.2-Viewing-configuration-details.md","mtime":"2021-09-29T03:10:44.252Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-09-30T05:46:31.142Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"15.2.2 查看配置详细信息","level":"2.1.2.2","depth":3,"next":{"title":"15.2.3 查看应用程序活动","level":"2.1.2.3","depth":3,"path":"Chapter-15/15.2-Consuming-Actuator-endpoints/15.2.3-Viewing-application-activity.md","ref":"Chapter-15/15.2-Consuming-Actuator-endpoints/15.2.3-Viewing-application-activity.md","articles":[]},"previous":{"title":"15.2.1 获取重要的应用程序信息","level":"2.1.2.1","depth":3,"path":"Chapter-15/15.2-Consuming-Actuator-endpoints/15.2.1-Fetching-essential-application-information.md","ref":"Chapter-15/15.2-Consuming-Actuator-endpoints/15.2.1-Fetching-essential-application-information.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Chapter-15/15.2-Consuming-Actuator-endpoints/15.2.2-Viewing-configuration-details.md","mtime":"2021-09-30T06:22:52.852Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-09-30T06:27:04.383Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

@@ -1094,55 +1094,53 @@
 <p>&#x4E8B;&#x5B9E;&#x4E0A;&#xFF0C;Actuator &#x7AEF;&#x70B9;&#x7684;&#x5B9A;&#x4E49;&#x4E0E; Controller &#x5B8C;&#x5168;&#x4E0D;&#x540C;&#x3002;&#x4E0D;&#x540C;&#x4E8E;&#x7528; @Controller &#x6216; @RestController &#x6CE8;&#x89E3;&#x7684;&#x7C7B;&#xFF0C;Actuator &#x7AEF;&#x70B9;&#x4F7F;&#x7528;&#x5E26;&#x6709; @Endpoint &#x6CE8;&#x89E3;&#x7684;&#x7C7B;&#x5B9A;&#x4E49;&#x3002;</p>
 <p>&#x66F4;&#x91CD;&#x8981;&#x7684;&#x662F;&#xFF0C;&#x4E0D;&#x518D;&#x4F7F;&#x7528; HTTP &#x547D;&#x540D;&#x6CE8;&#x89E3;&#xFF0C;&#x8BF8;&#x5982; @GetMapping&#x3001;@PostMapping &#x6216; @DeleteMapping&#x3002;Actuator &#x7AEF;&#x70B9;&#x7528; @ReadOperation&#x3001;@WriteOperation &#x548C; @DeleteOperation &#x6CE8;&#x89E3;&#x3002;&#x8FD9;&#x4E9B;&#x6CE8;&#x89E3;&#x5E76;&#x4E0D;&#x610F;&#x5473;&#x7740;&#x4EFB;&#x4F55;&#x7279;&#x5B9A;&#x7684;&#x901A;&#x4FE1;&#x673A;&#x5236;&#xFF0C;&#x4E8B;&#x5B9E;&#x4E0A;&#xFF0C;&#x5141;&#x8BB8; Actuator &#x901A;&#x8FC7;&#x5404;&#x79CD;&#x901A;&#x4FE1;&#x673A;&#x5236;&#x8FDB;&#x884C;&#x901A;&#x4FE1;&#xFF0C;HTTP &#x548C; JMX &#x5F00;&#x7BB1;&#x5373;&#x7528;&#x3002;</p>
 <p>&#x4E3A;&#x4E86;&#x6F14;&#x793A;&#x5982;&#x4F55;&#x7F16;&#x5199;&#x81EA;&#x5B9A;&#x4E49; Actuator &#x7AEF;&#x70B9;&#xFF0C;&#x8BF7;&#x53C2;&#x8003;&#x5982;&#x4E0B;&#x7684; NotesEndpoint&#x3002;</p>
-<p>
-```java
-package tacos.ingredients;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import org.springframework.boot.actuate.endpoint.annotation.DeleteOperation;
-import org.springframework.boot.actuate.endpoint.annotation.Endpoint;
-import org.springframework.boot.actuate.endpoint.annotation.ReadOperation;
-import org.springframework.boot.actuate.endpoint.annotation.WriteOperation;
-import org.springframework.stereotype.Component;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
+<p>&#x7A0B;&#x5E8F;&#x6E05;&#x5355; 15.7 &#x8BB0;&#x5F55;&#x4FBF;&#x7B3A;&#x7684;&#x81EA;&#x5B9A;&#x4E49;&#x7AEF;&#x70B9;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">package</span> tacos.ingredients;
+<span class="hljs-keyword">import</span> java.util.ArrayList;
+<span class="hljs-keyword">import</span> java.util.Date;
+<span class="hljs-keyword">import</span> java.util.List;
+<span class="hljs-keyword">import</span> org.springframework.boot.actuate.endpoint.annotation.DeleteOperation;
+<span class="hljs-keyword">import</span> org.springframework.boot.actuate.endpoint.annotation.Endpoint;
+<span class="hljs-keyword">import</span> org.springframework.boot.actuate.endpoint.annotation.ReadOperation;
+<span class="hljs-keyword">import</span> org.springframework.boot.actuate.endpoint.annotation.WriteOperation;
+<span class="hljs-keyword">import</span> org.springframework.stereotype.Component;
+<span class="hljs-keyword">import</span> lombok.Getter;
+<span class="hljs-keyword">import</span> lombok.RequiredArgsConstructor;
 
-@Component
-@Endpoint(id=&quot;notes&quot;, enableByDefault=true)
-public class NotesEndpoint {
+<span class="hljs-meta">@Component</span>
+<span class="hljs-meta">@Endpoint</span>(id=<span class="hljs-string">&quot;notes&quot;</span>, enableByDefault=<span class="hljs-keyword">true</span>)
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">NotesEndpoint</span> </span>{
 
-  private List<note> notes = new ArrayList&lt;&gt;();
+  <span class="hljs-keyword">private</span> List&lt;Note&gt; notes = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();
 
-  @ReadOperation
-    public List<note> notes() {
-  return notes;
+  <span class="hljs-meta">@ReadOperation</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> List&lt;Note&gt; <span class="hljs-title">notes</span><span class="hljs-params">()</span> </span>{
+  <span class="hljs-keyword">return</span> notes;
   }
 
-  @WriteOperation
-  public List<note> addNote(String text) {
-    notes.add(new Note(text));
-    return notes;
+  <span class="hljs-meta">@WriteOperation</span>
+  <span class="hljs-function"><span class="hljs-keyword">public</span> List&lt;Note&gt; <span class="hljs-title">addNote</span><span class="hljs-params">(String text)</span> </span>{
+    notes.add(<span class="hljs-keyword">new</span> Note(text));
+    <span class="hljs-keyword">return</span> notes;
   }
 
-  @DeleteOperation
-  public List<note> deleteNote(int index) {
-    if (index &lt; notes.size()) {
+  <span class="hljs-meta">@DeleteOperation</span>
+  <span class="hljs-function"><span class="hljs-keyword">public</span> List&lt;Note&gt; <span class="hljs-title">deleteNote</span><span class="hljs-params">(<span class="hljs-keyword">int</span> index)</span> </span>{
+    <span class="hljs-keyword">if</span> (index &lt; notes.size()) {
       notes.remove(index);
     }
-  return notes;
+  <span class="hljs-keyword">return</span> notes;
   }
 
-  @RequiredArgsConstructor
-  private class Note {
-    @Getter
-    private Date time = new Date();
-    @Getter
-    private final String text;
+  <span class="hljs-meta">@RequiredArgsConstructor</span>
+  <span class="hljs-keyword">private</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Note</span> </span>{
+    <span class="hljs-meta">@Getter</span>
+    <span class="hljs-keyword">private</span> Date time = <span class="hljs-keyword">new</span> Date();
+    <span class="hljs-meta">@Getter</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> String text;
   }
 }
-```
-</note></note></note></note></p>
+</code></pre>
 <p>&#x8BE5;&#x7AEF;&#x70B9;&#x662F;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x4FBF;&#x7B3A;&#x7AEF;&#x70B9;&#x3002;&#x5728;&#x8BE5;&#x7AEF;&#x70B9;&#x4E2D;&#xFF0C;&#x7528;&#x6237;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x5199;&#x5165;&#x64CD;&#x4F5C;&#x589E;&#x52A0;&#x4E00;&#x4E2A;&#x4FBF;&#x7B3A;&#xFF0C;&#x4F7F;&#x7528;&#x8BFB;&#x53D6;&#x64CD;&#x4F5C;&#x8BFB;&#x53D6;&#x4FBF;&#x7B3A;&#x5217;&#x8868;&#xFF0C;&#x7136;&#x540E;&#x4F7F;&#x7528;&#x5220;&#x9664;&#x64CD;&#x4F5C;&#x5220;&#x9664;&#x4FBF;&#x7B3A;&#x3002;&#x8BDA;&#x7136;&#xFF0C;&#x8FD9;&#x4E2A;&#x7AEF;&#x70B9;&#x5BF9;&#x4E8E; Actuator &#x6765;&#x8BF4;&#x4E0D;&#x662F;&#x5F88;&#x6709;&#x7528;&#xFF0C;&#x4F46;&#x662F;&#x5F53;&#x60A8;&#x8003;&#x8651;&#x5F00;&#x7BB1;&#x5373;&#x7528;&#x7684; Actuator &#x7AEF;&#x70B9;&#x4F1A;&#x6D89;&#x53CA;&#x592A;&#x591A;&#x9886;&#x57DF;&#x65F6;&#xFF0C;&#x5F88;&#x96BE;&#x60F3;&#x51FA;&#x4E00;&#x4E2A;&#x5B9E;&#x7528;&#x7684;&#x81EA;&#x5B9A;&#x4E49;&#x793A;&#x4F8B;&#x3002;</p>
 <p>&#x53EF;&#x4EE5;&#x770B;&#x5230;&#xFF0C;NotesEndpoint &#x7C7B;&#x5408;&#x4F7F;&#x7528; @Component &#x6CE8;&#x89E3;&#xFF0C;&#x4EE5;&#x4FBF;&#x901A;&#x8FC7; Spring &#x7684;&#x7EC4;&#x4EF6;&#x626B;&#x63CF;&#x83B7;&#x53D6;&#xFF0C;&#x5E76;&#x5728; Spring &#x4E2D;&#x5B9E;&#x4F8B;&#x5316;&#x4E3A; bean&#x3002;&#x5B83;&#x8FD8;&#x6DFB;&#x52A0;&#x4E86;&#x6CE8;&#x89E3; @Endpoint&#xFF0C;&#x4F7F;&#x5176;&#x6210;&#x4E3A; ID &#x4E3A; notes &#x7684; Actuator &#x7AEF;&#x70B9;&#x3002;&#x5E76;&#x4E14;&#x5B83;&#x662F;&#x9ED8;&#x8BA4;&#x542F;&#x7528;&#x7684;&#xFF0C;&#x8FD9;&#x6837;&#x60A8;&#x5C31;&#x4E0D;&#x9700;&#x8981;&#x901A;&#x8FC7;&#x5C06;&#x5176;&#x5305;&#x542B;&#x5728; <code>management.web.endpoints.web.exposure.include</code> &#x4E2D;&#x6765;&#x663E;&#x5F0F;&#x542F;&#x7528;&#x5B83;&#x3002;</p>
 <p>&#x5982;&#x60A8;&#x6240;&#x89C1;&#xFF0C;NotesEndpoint &#x63D0;&#x4F9B;&#x4E86;&#x5982;&#x4E0B;&#x64CD;&#x4F5C;&#xFF1A;</p>
@@ -1226,7 +1224,7 @@ $ curl localhost:8080/actuator/notes \
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"15.3.4 创建自定义端点","level":"2.1.3.4","depth":3,"next":{"title":"15.4 保护 Actuator","level":"2.1.4","depth":2,"path":"Chapter-15/15.4-Securing-Actuator.md","ref":"Chapter-15/15.4-Securing-Actuator.md","articles":[]},"previous":{"title":"15.3.3 注册自定义指标","level":"2.1.3.3","depth":3,"path":"Chapter-15/15.3-Customizing-Actuator/15.3.3-Registering-custom-metrics.md","ref":"Chapter-15/15.3-Customizing-Actuator/15.3.3-Registering-custom-metrics.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Chapter-15/15.3-Customizing-Actuator/15.3.4-Creating-custom-endpoints.md","mtime":"2021-09-29T03:29:33.976Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-09-30T05:46:31.142Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"15.3.4 创建自定义端点","level":"2.1.3.4","depth":3,"next":{"title":"15.4 保护 Actuator","level":"2.1.4","depth":2,"path":"Chapter-15/15.4-Securing-Actuator.md","ref":"Chapter-15/15.4-Securing-Actuator.md","articles":[]},"previous":{"title":"15.3.3 注册自定义指标","level":"2.1.3.3","depth":3,"path":"Chapter-15/15.3-Customizing-Actuator/15.3.3-Registering-custom-metrics.md","ref":"Chapter-15/15.3-Customizing-Actuator/15.3.3-Registering-custom-metrics.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Chapter-15/15.3-Customizing-Actuator/15.3.4-Creating-custom-endpoints.md","mtime":"2021-09-30T06:22:52.852Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-09-30T06:27:04.383Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

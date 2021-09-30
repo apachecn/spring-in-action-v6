@@ -1095,30 +1095,28 @@
 <p>&#x8BA9;&#x6211;&#x4EEC;&#x770B;&#x770B;&#x5982;&#x4F55;&#x7F16;&#x5199;&#x81EA;&#x5DF1;&#x7684; InfoContributor&#xFF0C;&#x5E76;&#x5411; <code>/info</code> &#x7AEF;&#x70B9;&#x6DFB;&#x52A0;&#x4E00;&#x4E9B;&#x81EA;&#x5B9A;&#x4E49;&#x4FE1;&#x606F;&#x3002;</p>
 <p><strong>&#x521B;&#x5EFA;&#x81EA;&#x5B9A;&#x4E49; Info Contributor &#x5B9E;&#x73B0;&#x7C7B;</strong></p>
 <p>&#x5047;&#x8BBE;&#x60A8;&#x60F3;&#x5728; <code>/info</code> &#x7AEF;&#x70B9;&#x4E2D;&#xFF0C;&#x6DFB;&#x52A0;&#x4E00;&#x4E9B;&#x6709;&#x4E8E; Taco Cloud &#x7684;&#x7B80;&#x5355;&#x7EDF;&#x8BA1;&#x4FE1;&#x606F;&#x3002;&#x4F8B;&#x5982;&#xFF0C;&#x6709;&#x591A;&#x5C11;&#x7389;&#x7C73;&#x5377;&#x5DF2;&#x7ECF;&#x5236;&#x4F5C;&#x51FA;&#x6765;&#x4E86;&#x3002;&#x4E3A;&#x6B64;&#xFF0C;&#x60A8;&#x53EF;&#x4EE5;&#x7F16;&#x5199;&#x4E00;&#x4E2A;&#x5B9E;&#x73B0; InfoContributor &#x63A5;&#x53E3;&#x7684;&#x5B9E;&#x73B0;&#x7C7B;&#xFF0C;&#x5E76;&#x6CE8;&#x5165; TacoRepository&#x3002;&#x7136;&#x540E;&#x5C31;&#x53EF;&#x4EE5;&#x628A; TacoRepository &#x80FD;&#x591F;&#x63D0;&#x4F9B;&#x7684;&#x7EDF;&#x8BA1;&#x6570;&#x636E;&#xFF0C;&#x63D0;&#x4F9B;&#x7ED9; <code>/info</code> &#x7AEF;&#x70B9;&#x4F7F;&#x7528;&#x3002;&#x4EE5;&#x4E0B;&#x7684;&#x7A0B;&#x5E8F;&#x6E05;&#x5355;&#x5C55;&#x793A;&#x4E86;&#x5982;&#x4F55;&#x5B9E;&#x73B0;&#x8FD9;&#x6837;&#x7684;&#x7C7B;&#x3002;</p>
-<p>
-```java
-package tacos.tacos;
-import org.springframework.boot.actuate.info.InfoContributor;
-import org.springframework.stereotype.Component;
-import java.util.HashMap;
-import java.util.Map;
-import org.springframework.boot.actuate.info.Info.Builder;
-@Component
-public class TacoCountInfoContributor implements InfoContributor {
-  private TacoRepository tacoRepo;
-  public TacoCountInfoContributor(TacoRepository tacoRepo) {
-    this.tacoRepo = tacoRepo;
+<p>&#x7A0B;&#x5E8F;&#x6E05;&#x5355; 15.3 InfoContributor &#x7684;&#x81EA;&#x5B9A;&#x4E49;&#x5B9E;&#x73B0;&#x7C7B;</p>
+<pre><code class="lang-java"><span class="hljs-keyword">package</span> tacos.tacos;
+<span class="hljs-keyword">import</span> org.springframework.boot.actuate.info.InfoContributor;
+<span class="hljs-keyword">import</span> org.springframework.stereotype.Component;
+<span class="hljs-keyword">import</span> java.util.HashMap;
+<span class="hljs-keyword">import</span> java.util.Map;
+<span class="hljs-keyword">import</span> org.springframework.boot.actuate.info.Info.Builder;
+<span class="hljs-meta">@Component</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TacoCountInfoContributor</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">InfoContributor</span> </span>{
+  <span class="hljs-keyword">private</span> TacoRepository tacoRepo;
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">TacoCountInfoContributor</span><span class="hljs-params">(TacoRepository tacoRepo)</span> </span>{
+    <span class="hljs-keyword">this</span>.tacoRepo = tacoRepo;
   }
-  @Override
-  public void contribute(Builder builder) {
-    long tacoCount = tacoRepo.count();
-    Map<string, object=""> tacoMap = new HashMap<string, object="">();
-    tacoMap.put(&quot;count&quot;, tacoCount);
-    builder.withDetail(&quot;taco-stats&quot;, tacoMap);
+  <span class="hljs-meta">@Override</span>
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">contribute</span><span class="hljs-params">(Builder builder)</span> </span>{
+    <span class="hljs-keyword">long</span> tacoCount = tacoRepo.count();
+    Map&lt;String, Object&gt; tacoMap = <span class="hljs-keyword">new</span> HashMap&lt;String, Object&gt;();
+    tacoMap.put(<span class="hljs-string">&quot;count&quot;</span>, tacoCount);
+    builder.withDetail(<span class="hljs-string">&quot;taco-stats&quot;</span>, tacoMap);
   }
 }
-```
-</string,></string,></p>
+</code></pre>
 <p>&#x5B9E;&#x73B0; InfoContributor &#x63A5;&#x53E3;&#x65F6;&#xFF0C;TacoCountInfoContributor &#x9700;&#x8981;&#x5B9E;&#x73B0; <code>contribute()</code>&#x65B9;&#x6CD5;&#x3002;&#x6B64;&#x65B9;&#x6CD5;&#x4F20;&#x5165;&#x4E86;&#x4E00;&#x4E2A; builder &#x5BF9;&#x8C61;&#xFF0C;&#x5728;&#x8BE5;&#x5BF9;&#x8C61;&#x4E0A;&#x8C03;&#x7528; <code>withDetail()</code> &#x4EE5;&#x6DFB;&#x52A0;&#x8BE6;&#x7EC6;&#x4FE1;&#x606F;&#x3002;&#x5728;&#x4E0A;&#x8FF0;&#x5B9E;&#x73B0;&#x4E2D;&#xFF0C;&#x901A;&#x8FC7;&#x8C03;&#x7528; TacoRepository &#x7684; <code>count()</code> &#x65B9;&#x6CD5;&#xFF0C;&#x67E5;&#x627E;&#x5DF2;&#x7ECF;&#x5236;&#x4F5C;&#x4E86;&#x591A;&#x5C11;&#x7389;&#x7C73;&#x5377;&#x3002;&#x7136;&#x540E;&#x628A;&#x8FD9;&#x4E2A;&#x6570;&#x5B57;&#x653E;&#x5230;&#x4E00;&#x4E2A; Map &#x5BF9;&#x8C61;&#x4E2D;&#xFF0C;&#x6700;&#x540E;&#x5C06;&#x6807;&#x7B7E; <code>taco-stats</code> &#x63D0;&#x4F9B;&#x7ED9; Builder &#x5BF9;&#x8C61;&#x3002;<code>/info</code> &#x7AEF;&#x70B9;&#x7684;&#x7ED3;&#x679C;&#x5C06;&#x5305;&#x62EC;&#x8BE5;&#x8BA1;&#x6570;&#xFF0C;&#x5982;&#x4E0B;&#x6240;&#x793A;&#xFF1A;</p>
 <pre><code class="lang-json">{
   <span class="hljs-string">&quot;taco-stats&quot;</span>: {
@@ -1200,73 +1198,70 @@ public class TacoCountInfoContributor implements InfoContributor {
 <span class="hljs-attr">      mode:</span> full
 </code></pre>
 <p>&#x4E0B;&#x9762;&#x7684;&#x6E05;&#x5355;&#x663E;&#x793A;&#x4E86;&#x5B8C;&#x6574; Git &#x7684;&#x793A;&#x4F8B;&#x4FE1;&#x606F;&#x3002;</p>
-<p>
-```json
-
-&quot;git&quot;:{
-    &quot;local&quot;:{
-        &quot;branch&quot;:{
-            &quot;ahead&quot;:&quot;8&quot;,
-            &quot;behind&quot;:&quot;0&quot;
+<p>&#x6E05;&#x5355; 15.4 &#x901A;&#x8FC7; /info &#x7AEF;&#x70B9;&#x516C;&#x5F00;&#x7684;&#x5B8C;&#x6574; Git &#x63D0;&#x4EA4;&#x4FE1;&#x606F;</p>
+<pre><code class="lang-json">
+<span class="hljs-string">&quot;git&quot;</span>:{
+    <span class="hljs-string">&quot;local&quot;</span>:{
+        <span class="hljs-string">&quot;branch&quot;</span>:{
+            <span class="hljs-string">&quot;ahead&quot;</span>:<span class="hljs-string">&quot;8&quot;</span>,
+            <span class="hljs-string">&quot;behind&quot;</span>:<span class="hljs-string">&quot;0&quot;</span>
         }
     },
-    &quot;commit&quot;:{
-        &quot;id&quot;:{
-            &quot;describe-short&quot;:&quot;df45505-dirty&quot;,
-            &quot;abbrev&quot;:&quot;df45505&quot;,
-            &quot;full&quot;:&quot;df455055daaf3b1347b0ad1d9dca4ebbc6067810&quot;,
-            &quot;describe&quot;:&quot;df45505-dirty&quot;
+    <span class="hljs-string">&quot;commit&quot;</span>:{
+        <span class="hljs-string">&quot;id&quot;</span>:{
+            <span class="hljs-string">&quot;describe-short&quot;</span>:<span class="hljs-string">&quot;df45505-dirty&quot;</span>,
+            <span class="hljs-string">&quot;abbrev&quot;</span>:<span class="hljs-string">&quot;df45505&quot;</span>,
+            <span class="hljs-string">&quot;full&quot;</span>:<span class="hljs-string">&quot;df455055daaf3b1347b0ad1d9dca4ebbc6067810&quot;</span>,
+            <span class="hljs-string">&quot;describe&quot;</span>:<span class="hljs-string">&quot;df45505-dirty&quot;</span>
         },
-        &quot;message&quot;:{
-            &quot;short&quot;:&quot;Apply chapter 18 edits&quot;,
-            &quot;full&quot;:&quot;Apply chapter 18 edits&quot;
+        <span class="hljs-string">&quot;message&quot;</span>:{
+            <span class="hljs-string">&quot;short&quot;</span>:<span class="hljs-string">&quot;Apply chapter 18 edits&quot;</span>,
+            <span class="hljs-string">&quot;full&quot;</span>:<span class="hljs-string">&quot;Apply chapter 18 edits&quot;</span>
         },
-        &quot;user&quot;:{
-            &quot;name&quot;:&quot;Craig Walls&quot;,
-            &quot;email&quot;:&quot;craig@habuma.com&quot;
+        <span class="hljs-string">&quot;user&quot;</span>:{
+            <span class="hljs-string">&quot;name&quot;</span>:<span class="hljs-string">&quot;Craig Walls&quot;</span>,
+            <span class="hljs-string">&quot;email&quot;</span>:<span class="hljs-string">&quot;craig@habuma.com&quot;</span>
         },
-        &quot;author&quot;:{
-            &quot;time&quot;:&quot;2021-08-08T15:51:12-0600&quot;
+        <span class="hljs-string">&quot;author&quot;</span>:{
+            <span class="hljs-string">&quot;time&quot;</span>:<span class="hljs-string">&quot;2021-08-08T15:51:12-0600&quot;</span>
         },
-        &quot;committer&quot;:{
-            &quot;time&quot;:&quot;2021-08-08T15:51:12-0600&quot;
+        <span class="hljs-string">&quot;committer&quot;</span>:{
+            <span class="hljs-string">&quot;time&quot;</span>:<span class="hljs-string">&quot;2021-08-08T15:51:12-0600&quot;</span>
         },
-        &quot;time&quot;:&quot;2021-08-08T21:51:12Z&quot;
+        <span class="hljs-string">&quot;time&quot;</span>:<span class="hljs-string">&quot;2021-08-08T21:51:12Z&quot;</span>
     },
-    &quot;branch&quot;:&quot;master&quot;,
-    &quot;build&quot;:{
-        &quot;time&quot;:&quot;2021-08-09T00:13:37Z&quot;,
-        &quot;version&quot;:&quot;0.0.15-SNAPSHOT&quot;,
-        &quot;host&quot;:&quot;Craigs-MacBook-Pro.local&quot;,
-        &quot;user&quot;:{
-            &quot;name&quot;:&quot;Craig Walls&quot;,
-            &quot;email&quot;:&quot;craig@habuma.com&quot;
+    <span class="hljs-string">&quot;branch&quot;</span>:<span class="hljs-string">&quot;master&quot;</span>,
+    <span class="hljs-string">&quot;build&quot;</span>:{
+        <span class="hljs-string">&quot;time&quot;</span>:<span class="hljs-string">&quot;2021-08-09T00:13:37Z&quot;</span>,
+        <span class="hljs-string">&quot;version&quot;</span>:<span class="hljs-string">&quot;0.0.15-SNAPSHOT&quot;</span>,
+        <span class="hljs-string">&quot;host&quot;</span>:<span class="hljs-string">&quot;Craigs-MacBook-Pro.local&quot;</span>,
+        <span class="hljs-string">&quot;user&quot;</span>:{
+            <span class="hljs-string">&quot;name&quot;</span>:<span class="hljs-string">&quot;Craig Walls&quot;</span>,
+            <span class="hljs-string">&quot;email&quot;</span>:<span class="hljs-string">&quot;craig@habuma.com&quot;</span>
         }
     },
-    &quot;tags&quot;:&quot;&quot;,
-    &quot;total&quot;:{
-        &quot;commit&quot;:{
-            &quot;count&quot;:&quot;196&quot;
+    <span class="hljs-string">&quot;tags&quot;</span>:<span class="hljs-string">&quot;&quot;</span>,
+    <span class="hljs-string">&quot;total&quot;</span>:{
+        <span class="hljs-string">&quot;commit&quot;</span>:{
+            <span class="hljs-string">&quot;count&quot;</span>:<span class="hljs-string">&quot;196&quot;</span>
         }
     },
-    &quot;closest&quot;:{
-        &quot;tag&quot;:{
-            &quot;commit&quot;:{
-                &quot;count&quot;:&quot;&quot;
+    <span class="hljs-string">&quot;closest&quot;</span>:{
+        <span class="hljs-string">&quot;tag&quot;</span>:{
+            <span class="hljs-string">&quot;commit&quot;</span>:{
+                <span class="hljs-string">&quot;count&quot;</span>:<span class="hljs-string">&quot;&quot;</span>
             },
-            &quot;name&quot;:&quot;&quot;
+            <span class="hljs-string">&quot;name&quot;</span>:<span class="hljs-string">&quot;&quot;</span>
         }
     },
-    &quot;remote&quot;:{
-        &quot;origin&quot;:{
-            &quot;url&quot;:&quot;git@github.com:habuma/spring-in-action-6-samples.git&quot;
+    <span class="hljs-string">&quot;remote&quot;</span>:{
+        <span class="hljs-string">&quot;origin&quot;</span>:{
+            <span class="hljs-string">&quot;url&quot;</span>:<span class="hljs-string">&quot;git@github.com:habuma/spring-in-action-6-samples.git&quot;</span>
         }
     },
-    &quot;dirty&quot;:&quot;true&quot;
+    <span class="hljs-string">&quot;dirty&quot;</span>:<span class="hljs-string">&quot;true&quot;</span>
 },
-
-```
-</p>
+</code></pre>
 <p>&#x9664;&#x4E86;&#x65F6;&#x95F4;&#x6233;&#x548C; Git &#x63D0;&#x4EA4;&#x54C8;&#x5E0C;&#x4E4B;&#x5916;&#xFF0C;&#x5B8C;&#x6574;&#x7248;&#x672C;&#x8FD8;&#x5305;&#x62EC;&#xFF0C;&#x63D0;&#x4EA4;&#x4EE3;&#x7801;&#x7684;&#x7528;&#x6237;&#x59D3;&#x540D;&#x548C;&#x7535;&#x5B50;&#x90AE;&#x4EF6;&#xFF0C;&#x4EE5;&#x53CA;&#x63D0;&#x4EA4;&#x6D88;&#x606F;&#x548C;&#x5176;&#x4ED6;&#x4FE1;&#x606F;&#x3002;&#x5141;&#x8BB8;&#x60A8;&#x7CBE;&#x786E;&#x5730;&#x8BC6;&#x522B;&#x6784;&#x5EFA;&#x9879;&#x76EE;&#x65F6;&#x4F7F;&#x7528;&#x7684;&#x4EE3;&#x7801;&#x3002;&#x4E8B;&#x5B9E;&#x4E0A;&#xFF0C;&#x8BF7;&#x6CE8;&#x610F;&#x6E05;&#x5355; 15.4 &#x4E2D;&#x7684; dirty &#x5B57;&#x6BB5;&#x4E3A; true&#xFF0C;&#x6307;&#x51FA;&#x6784;&#x5EFA;&#x76EE;&#x5F55;&#x4E2D;&#x6709;&#x4E00;&#x4E9B;&#x672A;&#x63D0;&#x4EA4;&#x7684;&#x66F4;&#x6539;&#xFF0C;&#x8FD9;&#x6837;&#x7684;&#x4EE3;&#x7801;&#x72B6;&#x6001;&#xFF0C;&#x771F;&#x662F;&#x6CA1;&#x6709;&#x4EC0;&#x4E48;&#x60C5;&#x51B5;&#x6BD4;&#x8FD9;&#x66F4;&#x69FD;&#x7CD5;&#x4E86;&#xFF01;</p>
 
                                 
@@ -1311,7 +1306,7 @@ public class TacoCountInfoContributor implements InfoContributor {
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"15.3.1 向 /info 端点提供信息","level":"2.1.3.1","depth":3,"next":{"title":"15.3.2 自定义健康指标","level":"2.1.3.2","depth":3,"path":"Chapter-15/15.3-Customizing-Actuator/15.3.2-Defining-custom-health-indicators.md","ref":"Chapter-15/15.3-Customizing-Actuator/15.3.2-Defining-custom-health-indicators.md","articles":[]},"previous":{"title":"15.3 自定义 Actuator","level":"2.1.3","depth":2,"path":"Chapter-15/15.3-Customizing-Actuator/Introduction.md","ref":"Chapter-15/15.3-Customizing-Actuator/Introduction.md","articles":[{"title":"15.3.1 向 /info 端点提供信息","level":"2.1.3.1","depth":3,"path":"Chapter-15/15.3-Customizing-Actuator/15.3.1-Contributing-information-to-the-info-endpoint.md","ref":"Chapter-15/15.3-Customizing-Actuator/15.3.1-Contributing-information-to-the-info-endpoint.md","articles":[]},{"title":"15.3.2 自定义健康指标","level":"2.1.3.2","depth":3,"path":"Chapter-15/15.3-Customizing-Actuator/15.3.2-Defining-custom-health-indicators.md","ref":"Chapter-15/15.3-Customizing-Actuator/15.3.2-Defining-custom-health-indicators.md","articles":[]},{"title":"15.3.3 注册自定义指标","level":"2.1.3.3","depth":3,"path":"Chapter-15/15.3-Customizing-Actuator/15.3.3-Registering-custom-metrics.md","ref":"Chapter-15/15.3-Customizing-Actuator/15.3.3-Registering-custom-metrics.md","articles":[]},{"title":"15.3.4 创建自定义端点","level":"2.1.3.4","depth":3,"path":"Chapter-15/15.3-Customizing-Actuator/15.3.4-Creating-custom-endpoints.md","ref":"Chapter-15/15.3-Customizing-Actuator/15.3.4-Creating-custom-endpoints.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Chapter-15/15.3-Customizing-Actuator/15.3.1-Contributing-information-to-the-info-endpoint.md","mtime":"2021-09-29T03:25:14.376Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-09-30T05:46:31.142Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"15.3.1 向 /info 端点提供信息","level":"2.1.3.1","depth":3,"next":{"title":"15.3.2 自定义健康指标","level":"2.1.3.2","depth":3,"path":"Chapter-15/15.3-Customizing-Actuator/15.3.2-Defining-custom-health-indicators.md","ref":"Chapter-15/15.3-Customizing-Actuator/15.3.2-Defining-custom-health-indicators.md","articles":[]},"previous":{"title":"15.3 自定义 Actuator","level":"2.1.3","depth":2,"path":"Chapter-15/15.3-Customizing-Actuator/Introduction.md","ref":"Chapter-15/15.3-Customizing-Actuator/Introduction.md","articles":[{"title":"15.3.1 向 /info 端点提供信息","level":"2.1.3.1","depth":3,"path":"Chapter-15/15.3-Customizing-Actuator/15.3.1-Contributing-information-to-the-info-endpoint.md","ref":"Chapter-15/15.3-Customizing-Actuator/15.3.1-Contributing-information-to-the-info-endpoint.md","articles":[]},{"title":"15.3.2 自定义健康指标","level":"2.1.3.2","depth":3,"path":"Chapter-15/15.3-Customizing-Actuator/15.3.2-Defining-custom-health-indicators.md","ref":"Chapter-15/15.3-Customizing-Actuator/15.3.2-Defining-custom-health-indicators.md","articles":[]},{"title":"15.3.3 注册自定义指标","level":"2.1.3.3","depth":3,"path":"Chapter-15/15.3-Customizing-Actuator/15.3.3-Registering-custom-metrics.md","ref":"Chapter-15/15.3-Customizing-Actuator/15.3.3-Registering-custom-metrics.md","articles":[]},{"title":"15.3.4 创建自定义端点","level":"2.1.3.4","depth":3,"path":"Chapter-15/15.3-Customizing-Actuator/15.3.4-Creating-custom-endpoints.md","ref":"Chapter-15/15.3-Customizing-Actuator/15.3.4-Creating-custom-endpoints.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Chapter-15/15.3-Customizing-Actuator/15.3.1-Contributing-information-to-the-info-endpoint.md","mtime":"2021-09-30T06:24:18.305Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-09-30T06:27:04.383Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
